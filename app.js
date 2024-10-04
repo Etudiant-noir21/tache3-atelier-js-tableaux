@@ -83,7 +83,7 @@ etudiants[9]={
 
 let tbody = document.querySelector("#tableEtudiant tbody");
 
-// boucle pour afficher chaque etudiant sur lw tableau
+// boucle pour afficher chaque etudiant sur le tableau
 etudiants.forEach(function (etudiant) {
     var ligne = document.createElement('tr');
 
@@ -118,24 +118,46 @@ tbody.appendChild(ligne);
 
 // je veux afficher l'entier , le decimal , la chaine de caractere d'un element du tableau en utilisant switch case
 
-switch (etudiants) {
-    case (etudiants.note === Number):
-        alert('un entier est detecte : ' + etudiants[i].note);
+let varcomparer = etudiants[0].note;
+
+switch (true) {
+    case typeof varcomparer === 'number' && Number.isInteger(varcomparer) :
+        alert('un entier est detecte .');
         break;
-       case (etudiants.nom === String):
-
-       alert('Une chaine de caractere est detecte : ' + etudiants[i].nom);
-       break;
-
-       case (etudiants.prenom === String):
-        alert('une chaine de caractere est detecte : ' + etudiants[i].prenom);
+    case typeof varcomparer === 'number' && !Number.isInteger(varcomparer) :
+        alert('un decimal est detecte . ');
         break;
+    case typeof varcomparer === 'string':
+        alert('une chaine de caractere est detecte . ');
+        break;
+    default:
+        alert('un autre type de variable est detecte . ');
+}
 
-        case (etudiants.age === Number):
-            alert('un entier est detecte : ' + etudiants[i].age);
-            break;
-        default:
-            alert('la variable est inconnue : ' );
-    }
+// pour les prenom et nom
+
+let noms = etudiants[0].nom;
+
+switch (true) {
+    case typeof noms === 'string' :
+        alert('une chaine de caractere est detecte . ');
+        break;
+    default:
+        alert('un autre type de variable est detecte . ');
+}
+
+// pour l'age   
+let ages = etudiants[0].age;
+
+switch (true) { 
+    case typeof ages === 'number' && Number.isInteger(ages) :
+        alert('un entier est detecte .');
+        break;
+    case typeof ages === 'number' && !Number.isInteger(ages) :
+        alert('un decimal est detecte . ');
+        break;
+    default:
+        alert('un autre type de variable est detecte . ');
+}
 
     
